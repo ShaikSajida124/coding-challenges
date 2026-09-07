@@ -61,13 +61,11 @@ def flattenPlaylists(playlists):
 
 def scoreTracks(tracks):
   copy_tracks = copy.deepcopy(tracks)
-  updated_tracks = []
   for i in range(len(copy_tracks)):
     current_track = copy_tracks[i]
     score = current_track['votes'] * 10 - abs(current_track['bpm'] - 120)
     current_track['score'] = score
-    updated_tracks.append(current_track)
-  return updated_tracks
+  return copy_tracks
 
 def dedupeTracks(tracks):
   unique_tracks = []
